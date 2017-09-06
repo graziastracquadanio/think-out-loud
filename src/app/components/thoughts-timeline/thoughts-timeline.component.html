@@ -1,0 +1,20 @@
+<div class="loader-container" *ngIf="isLoading">
+  <loader></loader>
+</div>
+<div class="tt-list" *ngIf="!isLoading">
+  <div class="tt-item" *ngFor="let thought of thoughts; let i = index">
+    <div class="tt-body">
+      <div class="tt-body-inner">
+        <p class="tt-details">{{thought.author || 'Anonymous'}} thought ...</p>
+        <p>{{thought.body}}</p>
+        <div class="tt-body-bottom">
+          <div class="tt-body-bottom-left">
+            <button [ngClass]="{liked: thoughtsLiked[thought.$key]}" (click)="sendLike(thought, i)" class="like-btn">&#9829;</button>
+            <span class="tt-details">{{thought.likes || 0}}</span>
+          </div>
+          <p class="tt-details">{{thought.creationDate | date:'yMMMd'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

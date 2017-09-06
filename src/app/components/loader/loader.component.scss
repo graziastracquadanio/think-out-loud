@@ -1,0 +1,44 @@
+$loader-width: 10em;
+$dots: 5;
+$dot-size: $loader-width/2/$dots;
+
+.loader {
+  width: $loader-width;
+  height: $dot-size;
+  position: relative;
+}
+
+.loader-dot {
+  width: $dot-size;
+  height: $dot-size;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(white, 0.5);
+  animation: loader 3s ease-in-out infinite;
+
+  @for $i from 0 through $dots {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.1s * $i;
+    }
+  }
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
+  }
+
+  45% {
+    transform: translateX($loader-width - $dot-size);
+  }
+
+  65% {
+    transform: translateX($loader-width - $dot-size);
+  }
+
+  95% {
+    transform: translateX(0);
+  }
+}

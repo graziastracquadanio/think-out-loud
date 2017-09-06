@@ -1,0 +1,25 @@
+<form #newThought="ngForm">
+  <div class="nt-container">
+    <p class="nt-intro">Hey! This is a board for thoughts. Feel free to leave yours, it could be inspiring, or you could be inspired by somebody else :)</p>
+    <div class="nt-field">
+      <label>Add your thought</label>
+      <textarea name="body" autofocus autosize required ngModel (ngModelChange)="formChanged(newThought)"></textarea>
+    </div>
+    <div class="nt-field">
+      <label>Your name*?</label>
+      <input type="text" name="author" required ngModel (ngModelChange)="formChanged(newThought)">
+      <span>You can put 'Anonymous' if you are shy :)</span>
+    </div>
+    <div class="nt-field">
+      <label>Your email*?</label>
+      <input
+        type="email"
+        name="email"
+        required
+        ngModel
+        (ngModelChange)="formChanged(newThought)">
+      <span>Don't worry, this will be used just to alert you when your thoughts will be approved.</span>
+    </div>
+    <button (click)="saveThought(newThought)" [disabled]="!canSend">Send this thought</button>
+    </div>
+</form>

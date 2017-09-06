@@ -1,0 +1,38 @@
+.snackbar {
+  position: fixed;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(black, 0.85);
+  border-radius: 5px 5px 0 0;
+  color: white;
+  padding: 1em;
+  width: 90%;
+  max-width: 350px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  animation: snackbarAnimation 0.35s forwards;
+  animation-delay: 0.35s;
+}
+
+.snackbar-close-btn {
+  width: 5em;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: lightgray;
+  margin-left: 0.5em;
+  padding: 0.2em 0.4em;
+}
+
+@keyframes snackbarAnimation {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0;
+  }
+}
